@@ -22,7 +22,7 @@ export class ProjectsComponent {
       description: 'Este mismo portafolio. Una aplicación desarrollada con Angular, TypeScript y Tailwind CSS, diseñada para ser completamente responsiva y visualmente atractiva.',
       imageUrl: 'assets/cv-porfolio.png',
       tags: ['Angular', 'TypeScript', 'Tailwind CSS', 'Componentes Standalone'],
-      repoUrl: '#',
+      repoUrl: 'https://github.com/ScarletMoonGA/scarlet-design-cv',
       status: 'Completado'
     }
   ]);
