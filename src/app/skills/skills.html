@@ -1,0 +1,21 @@
+<section id="skills">
+  <h2 class="text-3xl font-bold text-center mb-12 text-white animate-on-load" style="animation-delay: 0.1s">
+    <span class="border-b-4 border-teal-500 pb-1">Mis Habilidades</span>
+  </h2>
+  <div class="flex flex-col gap-8">
+    @for (category of skillCategories(); track category.name; let i = $index) {
+      <div class="animate-on-load">
+        <h3 class="text-xl font-semibold text-teal-400 mb-4">{{ category.name }}</h3>
+        <div class="flex flex-wrap gap-3">
+          @for (skill of category.skills; track skill.name; let j = $index) {
+            <span 
+              class="bg-gray-800 text-gray-300 text-sm font-medium px-4 py-2 rounded-full shadow-md flex items-center gap-2 animate-on-load transition-transform duration-200 hover:scale-110">
+              <i [class]="skill.icon + ' text-teal-400'"></i>
+              <span>{{ skill.name }}</span>
+            </span>
+          }
+        </div>
+      </div>
+    }
+  </div>
+</section>

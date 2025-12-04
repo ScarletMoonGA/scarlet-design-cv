@@ -1,0 +1,41 @@
+<section id="projects">
+  <h2 class="text-3xl font-bold text-center mb-12 text-white">
+    <span class="border-b-4 border-teal-500 pb-1">Proyectos</span>
+  </h2>
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    @for (project of projects(); track project.title) {
+      <div class="bg-gray-800 rounded-lg overflow-hidden shadow-lg transform hover:-translate-y-2 transition-transform duration-300 ease-in-out flex flex-col">
+        <div class="relative">
+          <img [src]="project.imageUrl" alt="{{ project.title }}" class="w-full h-48 object-cover">
+          <span 
+            class="absolute top-2 right-2 text-xs font-semibold px-3 py-1 rounded-full text-white shadow-md"
+            [class.bg-teal-600]="project.status === 'Completado'"
+            [class.bg-yellow-500]="project.status === 'En desarrollo'">
+            {{ project.status }}
+          </span>
+        </div>
+        <div class="p-6 flex flex-col flex-grow">
+          <h3 class="text-xl font-bold text-white mb-2">{{ project.title }}</h3>
+          <p class="text-gray-400 text-sm mb-4 flex-grow">{{ project.description }}</p>
+          <div class="flex flex-wrap gap-2 mb-4">
+            @for (tag of project.tags; track tag) {
+              <span class="text-xs bg-teal-900 text-teal-300 px-2 py-1 rounded-full">{{ tag }}</span>
+            }
+          </div>
+          <div class="mt-auto flex justify-end gap-4 pt-4 border-t border-gray-700">
+            @if (project.liveUrl) {
+              <a [href]="project.liveUrl" target="_blank" class="text-gray-300 hover:text-teal-400 font-semibold transition-colors duration-300">
+                Demo<i class="fas fa-external-link-alt ml-1"></i>
+              </a>
+            }
+            @if (project.repoUrl) {
+              <a [href]="project.repoUrl" target="_blank" class="text-gray-300 hover:text-teal-400 font-semibold transition-colors duration-300">
+                GitHub <i class="fab fa-github ml-1"></i>
+              </a>
+            }
+          </div>
+        </div>
+      </div>
+    }
+  </div>
+</section>

@@ -1,0 +1,26 @@
+<section id="experience">
+  <h2 class="text-3xl font-bold text-center mb-12 text-white animate-on-load" style="animation-delay: 0.1s">
+    <span class="border-b-4 border-teal-500 pb-1">Experiencia Laboral</span>
+  </h2>
+  
+  <div class="relative border-l-2 border-gray-700">
+    @for (job of experiences(); track job.company; let i = $index) {
+      <div class="relative mb-10 pl-8 md:pl-10 animate-on-load">
+        <span class="absolute flex items-center justify-center w-6 h-6 bg-teal-900 rounded-full -left-3 top-1 ring-8 ring-gray-900">
+          <i class="fas fa-briefcase text-teal-400 text-xs"></i>
+        </span>
+        <h3 class="flex flex-wrap items-baseline gap-x-2 mb-1 text-lg sm:text-xl font-semibold text-white">
+          <span>{{ job.role }}</span>
+          <span class="text-gray-500 text-sm font-normal">en</span> 
+          <span>{{ job.company }}</span>
+        </h3>
+        <time class="block mb-2 text-sm font-normal leading-none text-gray-500">{{ job.period }}</time>
+        <ul class="list-disc list-inside mt-2 text-gray-400 space-y-1">
+          @for(point of job.description; track point) {
+            <li>{{ point }}</li>
+          }
+        </ul>
+      </div>
+    }
+  </div>
+</section>
